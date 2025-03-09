@@ -27,6 +27,7 @@ def createUI(architect_obj):
             with gr.Column(scale=1):
                 pdf_display = gr.Image(label='Uploaded PDF Page', interactive=False, height=680)
                 upload_btn = gr.File(label='Upload a PDF', file_types=[".pdf"])
+                upload_btn.upload(fn=architect_obj.load_and_store_documents, inputs=[upload_btn])
     return demo
 
 if __name__ == "__main__":
