@@ -23,6 +23,12 @@ def createUI(architect_obj):
                     placeholder="Enter text and press enter"
                 )
                 submit_btn = gr.Button('Submit')
+                submit_btn.click(
+                fn=architect_obj.chat_with_ai_architect,
+                inputs=[txt, chatbot],
+                outputs=[chatbot],
+                queue=False
+                )
             
             with gr.Column(scale=1):
                 pdf_display = gr.Image(label='Uploaded PDF Page', interactive=False, height=680)
